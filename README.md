@@ -52,7 +52,7 @@ if(localizationMode && poseGuessFromRvizAvailable)
 
 3. 对LTAOM的关键帧做角点和面点的提取，用于ROLL定位
    
-   将ROLL中提取关键帧中的角点和面点的代码单独写成一个[corner_surface.cpp](/ROLL/code/corner_surface.cpp)，其中将livox雷达的数据转为256线的velodyne数据，用于在每条线上提取角点和面点。同时由于LTAOM输出关键帧为基于建图原点坐标系，而ROLL使用关键帧基于当前雷达坐标系，所以在其中加入了pose的逆矩阵转换，解决了ROLL加载关键帧错误的问题。
+   将ROLL中提取关键帧中的角点和面点的代码单独写成一个[corner_surface.cpp](./src/corner_surface.cpp)，其中将livox雷达的数据转为256线的velodyne数据，用于在每条线上提取角点和面点。同时由于LTAOM输出关键帧为基于建图原点坐标系，而ROLL使用关键帧基于当前雷达坐标系，所以在其中加入了pose的逆矩阵转换，解决了ROLL加载关键帧错误的问题。
 
    视频：[室内楼梯场景定位](/ROLL/vedio/loc_2.mp4)
    
