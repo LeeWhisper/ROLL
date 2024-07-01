@@ -1,0 +1,61 @@
+filter_size_surf: 0.4 # filtering 
+filter_size_map: 0.4 # ikdtree voxel filter
+debugMode: true
+common:
+    lid_topic:  /livox/lidar
+    imu_topic: /alphasense/imu
+    # imu_topic: /alphasense/imu_adis
+    # imu_topic: /os_cloud_node/imu
+    # imu_topic: handsfree/imu
+    time_sync_en: false         # ONLY turn on when external time ssynchronization is really not possible
+    lidar_delay: 0 # time in sec that lidar timestamp should be added
+    
+preprocess:
+    lidar_type: 1               # 1 for Livox serials LiDAR, 2 for Velodyne LiDAR, 3 for ouster LiDAR, 
+    scan_line:  6
+    blind: 4
+
+mapping:
+    acc_cov: 0.1
+    gyr_cov: 0.1
+    b_acc_cov: 0.0001
+    b_gyr_cov: 0.0001
+    fov_degree:    70
+    det_range:     260.0
+    extrinsic_est_en:  true      # true: enable the online estimation of IMU-LiDAR extrinsic
+    runtime_pos_log_enable: true
+    visualize_voxel_size: 0.4 # for visulizing global map
+    # for hilti, lidar_2_imu
+    extrinsic_T: [-0.0030507, -0.021994, 0.15076]
+    extrinsic_R:  [0.99998, 0.0024556, -0.0065197, 0.0024579, -1, 0.00033094, -0.0065188, -0.00034696, -0.99998]
+
+    # # for hilti: adis_imu
+    # extrinsic_T: [0.015519, -0.024164, -0.18263]
+    # extrinsic_R: [-0.0095124, 0.99995, -0.00071542, -0.99995, -0.0095122, 0.00037506, 0.00036824, 0.00071895, 1]
+
+    # # for hilti: ouster imu
+    # extrinsic_T: [0.0089177, 0.0023881, -0.039259]
+    # extrinsic_R: [0.99999, -0.00033206, -0.0031702, 0.00034319, 0.99999, 0.0035103, 0.003169, -0.0035114, 0.99999]
+
+
+    # smart wheelchair
+#  T that transforms lidar coor. to imu coor
+    # extrinsic_T: [ 0.04163, 0.018859, -0.055009]
+    # extrinsic_R:  [-0.018979, -0.063871, -0.99778, -0.018594, -0.99776, 0.064223, -0.99965, 0.019771, 0.01775]
+
+    # extrinsic_T: [ 0 ,0,0 ]
+    # extrinsic_R: [ 1 ,0,0, 0.0 ,1,0,0 ,0,1]
+
+publish:
+    map_pub: true
+    path_en:  true
+    scan_publish_en:  true       # false: close all the point cloud output
+    dense_publish_en: false       # false: low down the points number in a global-frame point clouds scan.
+    scan_bodyframe_pub_en: true  # true: output the point cloud scans in IMU-body-frame
+    
+
+pcd_save:
+    pcd_save_en: true
+    interval: -1                 # how many LiDAR frames saved in each pcd file; 
+                                 # -1 : all frames will be saved in ONE pcd file, may lead to memory crash when having too much frames.
+                                
