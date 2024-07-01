@@ -87,7 +87,7 @@ if(localizationMode && poseGuessFromRvizAvailable)
    下图是ROLL重新构建的全局地图，可见最上方的地图并没有构建出来，这正是由于没有和定位地图发生临时地图融合（LOAM计算的内点得分未达到阈值）导致的。
    ![新建图全局](./pic/新建图全局.png "新建图全局")
 
-   视频：[nclt数据的重定位+地图更新](/ROLL/vedio/loc_1.mp4)
+   视频：[nclt数据的重定位+地图更新](./vedio/roll_1.mp4)
    
    <font color=OrangeRed>ps：</font>会考虑一个情况是，第一次构建临时地图融合到全局地图后，那第二次触发构建临时地图，这次匹配是否会将第一次的临时地图考虑进去。由于当前数据不满足该情况，无法验证。
 
@@ -95,7 +95,7 @@ if(localizationMode && poseGuessFromRvizAvailable)
    
    将ROLL中提取关键帧中的角点和面点的代码单独写成一个[corner_surface.cpp](./src/corner_surface.cpp)，其中将livox雷达的数据转为256线的velodyne数据，用于在每条线上提取角点和面点。同时由于LTAOM输出关键帧为基于建图原点坐标系，而ROLL使用关键帧基于当前雷达坐标系，所以在其中加入了pose的逆矩阵转换，解决了ROLL加载关键帧错误的问题。
 
-   视频：[室内楼梯场景定位](/ROLL/vedio/loc_2.mp4)
+   视频：[室内楼梯场景定位](./vedio/loc_2.mp4)
    
 4. ROLL中重定位的实现原理（rviz中的绿线和红线）
    
@@ -108,7 +108,7 @@ if(localizationMode && poseGuessFromRvizAvailable)
    
    使用LTAOM对nclt数据集(2012-02-02，包含约1.5h，5.5km的数据)建图并提取关键帧中的角点和面点，再使用nclt(2013-01-10)实现定位及临时建图融合。实验结果表明，在nclt(2013-01-10)数据的机器人运动轨迹不完全重和，且部分雷达数据不相同的情况下，依然可以实现定位和临时建图。但是定位过程中，机器人姿态会出现轻微抖动，怀疑是定位模式下的位姿优化导致。
 
-   视频：[大型数据集下的建图与定位](/ROLL/vedio/nclt不同数据集的建图与定位.mp4)
+   视频：[大型数据集下的建图与定位](./vedio/nclt不同数据集的建图与定位.mp4)
 
 6. 算法内存优化
    
