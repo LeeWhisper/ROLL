@@ -184,6 +184,8 @@ roll:
 
 ### 环境及文件配置
 
+库文件存放于[百度网盘](https://pan.baidu.com/s/1XJYSR27Ko-KI3SulEqjZGA?pwd=9ccc)中，由于LTAOM与ROLL使用的gtsam库不同，所以请**务必将库安装在工作空间下**，避免库调用冲突
+
 1. Ubuntu 20.04
 
 2. ROS noetic
