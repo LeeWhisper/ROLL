@@ -2599,7 +2599,7 @@ public:
 
         // cout << *cloudLocal << endl;    
         downSizeFilterSurroundingKeyPoses.setInputCloud(cloudLocal);
-        downSizeFilterSurroundingKeyPoses.filter(cloudLocal);
+        downSizeFilterSurroundingKeyPoses.filter(*cloudLocal);
         publishCloud(&pubRecentKeyFrames, cloudLocal, timeLidarInfoStamp, mapFrame);
 
         // publish temporary keyposes for visualization
