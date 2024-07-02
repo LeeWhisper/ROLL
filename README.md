@@ -267,6 +267,6 @@ roslaunch roll loc_nclt.launch
 
 2. 实际定位效果
 
-   使用LTAOM建图得到的关键帧地图进行定位，视频如下：
+   在实际场景中，使用LTAOM建图得到的关键帧地图进行定位，视频如下：
 
    [ROLL定位_真实场景.mp4](./vedio/ROLL定位_真实场景.mp4)
