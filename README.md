@@ -44,7 +44,7 @@ ROLL为基于FAST-LIO2的一种建图+定位算法，同时，基于GTSAM的因�
 
 滑窗优化主要是融合一段时间内的里程计位姿和全局定位的位姿，通过构建一个极大似然估计问题，如下公式，代码中实际使用gtsam求解。
 
-$$ \begin{aligned}\boldsymbol{\chi}_f^*=\arg\min_{\chi_f}\left\{\sum_{i=k-n+1}^{k-1}\left\|(z_i^O-h^O(\mathbf{T}_i,\mathbf{T}_{i+1}))\right\|_{\Omega_i^O}+\sum_{j=k-m+1}^k\left\|(z_j^M-h^M(\mathbf{T}_j))\right\|_{\Omega_j^M}\right\}\end{aligned} $$
+$$ \begin{aligned}\boldsymbol{\chi}_f^*=\arg\min_{\chi_f}\left\\{\sum_{i=k-n+1}^{k-1}\left\\|(z_i^O-h^O(\mathbf{T}_i,\mathbf{T}_{i+1}))\right\\|_{\Omega_i^O}+\sum_{j=k-m+1}^k\left\\|(z_j^M-h^M(\mathbf{T}_j))\right\\|_{\Omega_j^M}\right\\}\end{aligned} $$
 
 ## 主要参数
 
