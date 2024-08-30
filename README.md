@@ -1,6 +1,7 @@
 # ROLL
 
 - [ROLL](#roll)
+  - [效果展示](#效果展示)
   - [算法框架](#算法框架)
     - [fast-lio建图模块](#fast-lio建图模块)
     - [全局优化模块](#全局优化模块)
@@ -13,6 +14,11 @@
     - [启动定位](#启动定位)
   - [实验结果](#实验结果)
 
+## 效果展示
+
+   <div align="center">
+   <img src="./gif/ROLL定位_真实场景.gif" width=100% />
+   </div>
 
 ## 算法框架
 
@@ -270,9 +276,3 @@ roslaunch roll loc_nclt.launch
    在实际场景中，使用LTAOM建图得到的关键帧地图进行定位，视频如下：
 
    [ROLL定位_真实场景.mp4](./vedio/ROLL定位_真实场景.mp4)
-
-4. 真实场景下的定位效果
-
-   <div align="center">
-   <img src="./gif/ROLL定位_真实场景.gif" width=99% />
-   </div>
